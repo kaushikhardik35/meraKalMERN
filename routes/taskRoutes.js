@@ -20,10 +20,8 @@ router.post("/", auth, async (req, res) => {
     }
     const { userId } = req.user;
 
-    // Ensure delay is parsed as number
     const parsedDelay = parseInt(delay, 10);
 
-    // Create a task object
     const task = {
       endpoint: endpoint,
       data: "Hello",
@@ -45,7 +43,6 @@ router.get("/user", auth, async (req, res) => {
   try {
     const { userId } = req.user;
 
-    // Get tasks by user ID
     const tasks = await getTasksByUserId(userId);
 
     res.json(tasks);
@@ -57,7 +54,6 @@ router.get("/user", auth, async (req, res) => {
 
 router.get("/", auth, async (req, res) => {
   try {
-    // Get all tasks
     const tasks = await getAllTasks();
 
     res.json(tasks);
