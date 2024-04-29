@@ -19,12 +19,12 @@ router.post("/", auth, async (req, res) => {
       method = "GET";
     }
     const { userId } = req.user;
-
+    console.log(req.body);
     const parsedDelay = parseInt(delay, 10);
 
     const task = {
       endpoint: endpoint,
-      data: "Hello",
+      data: req.body,
       delay: parsedDelay || 0,
       method: method,
       userId: userId,
